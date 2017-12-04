@@ -1,22 +1,61 @@
 import React, { Component } from 'react';
-import Auth from '../Auth/Auth.js';
-
-
+import { Navbar, Button } from 'react-bootstrap';
 
 class App extends Component {
 
+  goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
+
+  login() {
+    this.props.auth.login();
+  }
+
+  logout() {
+    this.props.auth.logout();
+  }
 
   render() {
-    const auth = new Auth();
-    auth.login();
+    const { isAuthenticated } = this.props.auth;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <Navbar fluid>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="#">Auth0 - React</a>
+            </Navbar.Brand>
+            <Button
+              bsStyle="primary"
+              className="btn-margin"
+              onClick={this.goTo.bind(this, 'home')}
+            >
+              Home
+            </Button>
+            {
+              !isAuthenticated() && (
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.login.bind(this)}
+                  >
+                    Log In
+                  </Button>
+                )
+            }
+            {
+              isAuthenticated() && (
+                  <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.logout.bind(this)}
+                  >
+                    Log Out
+                  </Button>
+                )
+            }
+          </Navbar.Header>
+        </Navbar>
       </div>
     );
   }
