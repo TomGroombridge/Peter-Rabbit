@@ -5,8 +5,7 @@ class App extends Component {
 
   render() {
     return (
-      <NavigationBar auth={this.props.auth}>
-      </NavigationBar>
+      <NavigationBar auth={this.props.auth} />
     );
   }
 }
