@@ -4,6 +4,7 @@ import { Button } from "../../style/styleguide"
 export const NavBar = styled.ul`
   background-color: #3097D1;
   overflow: hidden;
+  margin-bottom: 0px;
 `;
 
 export const NavButton = Button.extend`
