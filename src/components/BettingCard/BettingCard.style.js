@@ -6,6 +6,7 @@ export const CardOutline = styled.div`
   padding: 10px;
   display: inline-block;
   margin-right: 30px;
+  margin-bottom: 30px;
 `;
 
 export const BettingCompany = styled.div`
@@ -14,11 +15,12 @@ export const BettingCompany = styled.div`
   width: 50px;
   border: 1px solid #3097D1;
   text-align: center;
-  display: inline-block;
+  margin-bottom: 10px;
 `
 
 export const BettingOfferDescription = styled.h3`
   color: #3097D1;
+  text-align: left;
 `
 
 export const BettingTag = styled.div`
@@ -33,6 +35,7 @@ export const BettingTag = styled.div`
 
 export const BetEndDate = styled.div`
   display: inline-block;
+  float: left;
 `
 
 export const MaxBet = styled.div`

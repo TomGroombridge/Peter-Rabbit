@@ -16,6 +16,8 @@ class App extends Component {
           <BettingCard />
           <BettingCard />
           <BettingCard />
+          <BettingCard />
+          <BettingCard />
         </div>
       </div>
     );
