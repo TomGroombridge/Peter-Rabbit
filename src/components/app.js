@@ -7,14 +7,16 @@ class App extends Component {
 
   render() {
     return (
-      <div style={divStyle}>
+      <div>
         <NavigationBar auth={this.props.auth} />
 
         <BettingNavigationBar />
-        <BettingCard />
-        <BettingCard />
-        <BettingCard />
-        <BettingCard />
+        <div style={divStyle}>
+          <BettingCard />
+          <BettingCard />
+          <BettingCard />
+          <BettingCard />
+        </div>
       </div>
     );
   }
