@@ -10,9 +10,9 @@ class BettingNavigationBar extends Component {
   render(){
     return(
       <FilterBarOutline>
-        <FilterButton>Football</FilterButton>
-        <FilterButton>Cricket</FilterButton>
-        <FilterButton>Rugby</FilterButton>
+        <FilterButton onClick={this.props.handler} value={"football"}>Football</FilterButton>
+        <FilterButton onClick={this.props.handler} value={"cricket"}>Cricket</FilterButton>
+        <FilterButton onClick={this.props.handler} value={"rugby"}>Rugby</FilterButton>
         <FilterButton>New Customers</FilterButton>
         <FilterButton>Existsing Customers</FilterButton>
       </FilterBarOutline>

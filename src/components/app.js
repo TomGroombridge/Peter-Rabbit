@@ -5,19 +5,34 @@ import BettingNavigationBar from './BettingNavigationBar/BettingNavigationBar.js
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.handler = this.handler.bind(this)
+    this.state = {
+      selected: "rugby"
+    };
+  }
+
+  handler(e) {
+    e.preventDefault()
+    this.setState({
+      selected: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
         <NavigationBar auth={this.props.auth} />
 
-        <BettingNavigationBar />
+        <BettingNavigationBar handler={this.handler} />
         <div style={divStyle}>
-          <BettingCard />
-          <BettingCard />
-          <BettingCard />
-          <BettingCard />
-          <BettingCard />
-          <BettingCard />
+          <BettingCard sport={'football'} selected={this.state.selected}/>
+          <BettingCard sport={'football'} selected={this.state.selected}/>
+          <BettingCard sport={'football'} selected={this.state.selected}/>
+          <BettingCard sport={'cricket'} selected={this.state.selected}/>
+          <BettingCard sport={'cricket'} selected={this.state.selected}/>
+          <BettingCard sport={'rugby'} selected={this.state.selected}/>
         </div>
       </div>
     );
