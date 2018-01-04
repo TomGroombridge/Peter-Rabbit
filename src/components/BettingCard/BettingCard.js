@@ -42,9 +42,7 @@ class BettingCard extends Component {
         </ReactCSSTransitionGroup>
       )
     } else {
-      return (
-        ""
-      )
+      return (null)
     }
   }
 }
