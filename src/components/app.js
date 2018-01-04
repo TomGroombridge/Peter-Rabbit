@@ -9,7 +9,7 @@ class App extends Component {
     super(props);
     this.handler = this.handler.bind(this)
     this.state = {
-      selected: "rugby"
+      selected: "football"
     };
   }
 
@@ -27,12 +27,12 @@ class App extends Component {
 
         <BettingNavigationBar handler={this.handler} />
         <div style={divStyle}>
-          <BettingCard sport={'football'} selected={this.state.selected}/>
-          <BettingCard sport={'football'} selected={this.state.selected}/>
-          <BettingCard sport={'football'} selected={this.state.selected}/>
-          <BettingCard sport={'cricket'} selected={this.state.selected}/>
-          <BettingCard sport={'cricket'} selected={this.state.selected}/>
-          <BettingCard sport={'rugby'} selected={this.state.selected}/>
+          <BettingCard sport={'football'} selected={this.state.selected} />
+          <BettingCard sport={'football'} selected={this.state.selected} />
+          <BettingCard sport={'football'} selected={this.state.selected} />
+          <BettingCard sport={'cricket'} selected={this.state.selected} />
+          <BettingCard sport={'cricket'} selected={this.state.selected} />
+          <BettingCard sport={'rugby'} selected={this.state.selected} />
         </div>
       </div>
     );
