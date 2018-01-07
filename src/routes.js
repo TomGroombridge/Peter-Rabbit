@@ -4,6 +4,10 @@ import App from './components/app.js';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+
+const store = configureStore();
 
 const auth = new Auth();
 
@@ -15,14 +19,8 @@ const handleAuthentication = (nextState, replace) => {
 
 export const makeMainRoutes = () => {
   return (
-    <Router history={history} component={App}>
-      <div>
-        <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-        <Route path="/callback" render={(props) => {
-          handleAuthentication(props);
-          return <Callback {...props} />
-        }}/>
-      </div>
-    </Router>
+    <Provider store={store}>
+        <App />
+    </Provider>
   );
 }
