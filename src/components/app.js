@@ -17,11 +17,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchData('http://localhost:5000/profiles');
+    this.props.fetchData('http://localhost:5000/bets');
   }
 
   handler(e) {
     e.preventDefault()
+    this.props.fetchData('http://localhost:5000/bets');
     this.setState({
       selected: e.target.value
     })
@@ -37,26 +38,22 @@ class App extends Component {
     }
 
     return (
-      <ul>
+      <div style={divStyle}>
         <BettingNavigationBar handler={this.handler} />
         {this.props.items.map((item) => (
-          <BettingCard sport={'football'} selected={this.state.selected} key={item.id}/>
+          <BettingCard
+            sport={item.sport}
+            selected={this.state.selected}
+            key={item.id}
+          />
         ))}
-      </ul>
+      </div>
     );
     // return (
     //   <div>
     //     {/*<NavigationBar auth={this.props.auth} />*/}
 
     //     <BettingNavigationBar handler={this.handler} />
-    //     <div style={divStyle}>
-    //       <BettingCard sport={'football'} selected={this.state.selected} />
-    //       <BettingCard sport={'football'} selected={this.state.selected} />
-    //       <BettingCard sport={'football'} selected={this.state.selected} />
-    //       <BettingCard sport={'cricket'} selected={this.state.selected} />
-    //       <BettingCard sport={'cricket'} selected={this.state.selected} />
-    //       <BettingCard sport={'rugby'} selected={this.state.selected} />
-    //     </div>
     //   </div>
     // );
   }
