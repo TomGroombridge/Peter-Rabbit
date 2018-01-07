@@ -24,3 +24,9 @@
   opacity: 1;
   transition: opacity .5s ease-in;
 }
+
+.footballLogo{
+  float: left;
+  height: 42px;
+  width: 42px;
+}

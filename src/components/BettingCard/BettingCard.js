@@ -10,6 +10,7 @@ import {
 } from './BettingCard.style.js'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import '../../style.css';
+import footballLogo from '../../Football.svg'
 
 class BettingCard extends Component {
 
@@ -23,14 +24,17 @@ class BettingCard extends Component {
           transitionEnter={false}
           transitionLeave={false}>
           <CardOutline>
-            <BettingTag>
-              New Customers
-            </BettingTag>
-            <BettingCompany/>
-            <BettingPicture />
-            <BettingOfferDescription>
-              Money back if the either team score in the first half!
-            </BettingOfferDescription>
+            <div style={cardTopNav}>
+              <img src={footballLogo} alt={"logo"} className="footballLogo"/>
+              <BettingTag>
+                New Customers
+              </BettingTag>
+            </div>
+            <div>
+              <BettingOfferDescription>
+                Money back if the either team score in the first half!
+              </BettingOfferDescription>
+            </div>
             <BetEndDate>
               10th Jan 5:00pm
             </BetEndDate>
@@ -48,3 +52,7 @@ class BettingCard extends Component {
 }
 
 export default BettingCard;
+
+var cardTopNav = {
+    minHeight: '45px'
+}
