@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {
+  Link,
+} from 'react-router-dom';
+import {
   Button,
   Container,
   Menu,
@@ -24,8 +27,8 @@ class NavigationBar extends Component {
     return(
       <Menu fixed='top' inverted size='large'>
         <Container>
-          <Menu.Item as='a' active>Home</Menu.Item>
-          <Menu.Item as='a'>Work</Menu.Item>
+          <Menu.Item as='a' active><Link to={'/'}>Home</Link></Menu.Item>
+          <Menu.Item as='a'><Link to={'/offers'}>Offers</Link></Menu.Item>
           <Menu.Item as='a'>Company</Menu.Item>
           <Menu.Item as='a'>Careers</Menu.Item>
           <Menu.Item position='right'>
