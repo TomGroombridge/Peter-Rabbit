@@ -30,3 +30,11 @@
   height: 42px;
   width: 42px;
 }
+
+.loadingOverlay{
+  height: 100%;
+  position: fixed !important;
+  width: 100%;
+  border: none !important;
+  border-radius: 0px !important;
+}

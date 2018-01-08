@@ -4,6 +4,7 @@ import BettingNavigationBar from '../BettingNavigationBar/BettingNavigationBar.j
 import { connect } from 'react-redux';
 import { itemsFetchData } from '../../actions/items';
 import PropTypes from 'prop-types';
+import Loading from '../Loading/Loading.js'
 
 class BettingOffers extends Component {
 
@@ -39,7 +40,7 @@ class BettingOffers extends Component {
       return <p>Sorry! There was an error loading the items</p>;
     }
     if (this.props.isLoading) {
-      return <p>Loading…</p>;
+      return <Loading />;
     }
     return (
       <div style={divStyle}>
