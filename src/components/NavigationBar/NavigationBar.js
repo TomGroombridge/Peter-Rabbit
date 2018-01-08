@@ -27,7 +27,7 @@ class NavigationBar extends Component {
     return(
       <Menu fixed='top' inverted size='large'>
         <Container>
-          <Menu.Item as='a' active><Link to={'/'}>Home</Link></Menu.Item>
+          <Menu.Item as='a'><Link to={'/'}>Home</Link></Menu.Item>
           <Menu.Item as='a'><Link to={'/offers'}>Offers</Link></Menu.Item>
           <Menu.Item as='a'>Company</Menu.Item>
           <Menu.Item as='a'>Careers</Menu.Item>
