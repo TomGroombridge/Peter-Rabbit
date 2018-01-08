@@ -16,7 +16,10 @@ class BettingOffers extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchData('http://localhost:5000/bets');
+    const { isAuthenticated } = this.props.auth;
+    if (isAuthenticated()){
+      this.props.fetchData('http://localhost:5000/bets');
+    }
   }
 
   handler(e) {
@@ -35,11 +38,9 @@ class BettingOffers extends Component {
     if (this.props.hasErrored) {
       return <p>Sorry! There was an error loading the items</p>;
     }
-
     if (this.props.isLoading) {
       return <p>Loading…</p>;
     }
-
     return (
       <div style={divStyle}>
         <BettingNavigationBar handler={this.handler} />
