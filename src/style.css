@@ -38,3 +38,9 @@
   border: none !important;
   border-radius: 0px !important;
 }
+
+.subNav{
+  width: 100%;
+  margin-top: 3em !important;
+  margin-bottom: 3em !important;
+}

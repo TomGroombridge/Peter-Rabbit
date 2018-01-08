@@ -11,9 +11,7 @@ class BettingOffers extends Component {
   constructor(props) {
     super(props);
     this.handler = this.handler.bind(this)
-    this.state = {
-      selected: "football"
-    };
+    this.state = {selected: "football"};
   }
 
   componentDidMount() {
@@ -23,16 +21,14 @@ class BettingOffers extends Component {
     }
   }
 
-  handler(e) {
+  handler(e, { name }){
     e.preventDefault()
-    this.props.fetchData('http://localhost:5000/bets');
-    this.setState({
-      selected: e.target.value
-    })
+    this.setState({ selected: name })
   }
 
   render() {
     const { isAuthenticated } = this.props.auth;
+    const { selected } = this.state;
     if (!isAuthenticated()) {
       return <p>Sorry you cannot view this page without being authenticated</p>
     }
@@ -44,11 +40,11 @@ class BettingOffers extends Component {
     }
     return (
       <div style={divStyle}>
-        <BettingNavigationBar handler={this.handler} />
+        <BettingNavigationBar handler={this.handler} selected={selected}/>
         {this.props.items.map((item) => (
           <BettingCard
             sport={item.sport}
-            selected={this.state.selected}
+            selected={selected}
             key={item.id}
           />
         ))}

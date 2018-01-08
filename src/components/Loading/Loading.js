@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
+import React from 'react';
+import { Dimmer, Loader, Segment } from 'semantic-ui-react'
 import  '../../style.css'
 
 
