@@ -4,6 +4,12 @@ import App from './components/app.js';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';
+import { Provider } from 'react-redux';
+import configureStore from './store/configureStore';
+import BettingOffers from './components/BettingOffers/BettingOffers.js'
+import LandingPage from './components/LandingPage/LandingPage.js'
+
+const store = configureStore();
 
 const auth = new Auth();
 
@@ -15,14 +21,18 @@ const handleAuthentication = (nextState, replace) => {
 
 export const makeMainRoutes = () => {
   return (
-    <Router history={history} component={App}>
-      <div>
-        <Route path="/" render={(props) => <App auth={auth} {...props} />} />
-        <Route path="/callback" render={(props) => {
-          handleAuthentication(props);
-          return <Callback {...props} />
-        }}/>
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router history={history}>
+        <div>
+          <Route path="/" render={(props) => <App auth={auth} {...props} />} />
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/offers" render={(props) => <BettingOffers auth={auth} {...props} />} />
+          <Route path="/callback" render={(props) => {
+            handleAuthentication(props);
+            return <Callback {...props} />
+          }}/>
+        </div>
+      </Router>
+    </Provider>
   );
 }

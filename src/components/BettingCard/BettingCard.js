@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import {
   CardOutline,
-  BettingCompany,
   BettingOfferDescription,
   BettingTag,
   BetEndDate,
   MaxBet,
-  BettingPicture
 } from './BettingCard.style.js'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import '../../style.css';

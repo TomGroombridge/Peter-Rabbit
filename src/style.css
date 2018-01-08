@@ -30,3 +30,17 @@
   height: 42px;
   width: 42px;
 }
+
+.loadingOverlay{
+  height: 100%;
+  position: fixed !important;
+  width: 100%;
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.subNav{
+  width: 100%;
+  margin-top: 3em !important;
+  margin-bottom: 3em !important;
+}
