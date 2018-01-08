@@ -7,7 +7,7 @@ class BettingNavigationBar extends Component {
   render(){
     const { selected } = this.props;
     return(
-      <Menu compact icon='labeled' className="subNav" fluid widths={3}>
+      <Menu fixed='top' compact icon='labeled' className="subNav" fluid widths={3}>
         <Menu.Item name='football' active={selected === "football"} onClick={this.props.handler}>
           <Icon name='gamepad' />
           Football

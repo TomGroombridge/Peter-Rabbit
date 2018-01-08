@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Router } from 'react-router-dom';
-import App from './components/app.js';
+import NavigationBar from './components/NavigationBar/NavigationBar.js';
+import NavigationFooter from './components/NavigationFooter/NavigationFooter.js';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';
@@ -23,16 +24,23 @@ export const makeMainRoutes = () => {
   return (
     <Provider store={store}>
       <Router history={history}>
-        <div>
-          <Route path="/" render={(props) => <App auth={auth} {...props} />} />
+        <div style={divHeight}>
+          <NavigationBar auth={auth} />
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/offers" render={(props) => <BettingOffers auth={auth} {...props} />} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />
           }}/>
+          <NavigationFooter />
         </div>
       </Router>
     </Provider>
   );
+}
+
+const divHeight = {
+  height: '100%',
+  position: 'absolute',
+  width: '100%',
 }

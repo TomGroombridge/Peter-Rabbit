@@ -41,13 +41,15 @@ class BettingOffers extends Component {
     return (
       <div style={divStyle}>
         <BettingNavigationBar handler={this.handler} selected={selected}/>
-        {this.props.items.map((item) => (
-          <BettingCard
-            sport={item.sport}
-            selected={selected}
-            key={item.id}
-          />
-        ))}
+        <div style={{ marginTop: '11.3em'}}>
+          {this.props.items.map((item) => (
+            <BettingCard
+              sport={item.sport}
+              selected={selected}
+              key={item.id}
+            />
+          ))}
+        </div>
       </div>
     );
   }
@@ -77,5 +79,6 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(BettingOffers);
 
 var divStyle = {
-  textAlign: 'center'
+  textAlign: 'center',
+  minHeight: '100%'
 };
