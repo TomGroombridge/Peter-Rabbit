@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import {
-  NavBar,
-  NavLink,
-  AuthenticateButton
-} from './NavigationBar.style.js';
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Header,
+  Icon,
+  Image,
+  List,
+  Menu,
+  Segment,
+} from 'semantic-ui-react'
 
 class NavigationBar extends Component {
 
@@ -22,30 +29,20 @@ class NavigationBar extends Component {
   render(){
     const { isAuthenticated } = this.props.auth;
     return(
-      <NavBar>
-        <NavLink>Home</NavLink>
-        <NavLink>About us</NavLink>
-        <NavLink>FAQ's</NavLink>
-        {
-          !isAuthenticated() && (
-            <AuthenticateButton
-              onClick={this.login.bind(this)}
-            >
-              Login
-            </AuthenticateButton>
-          )
-        }
-        {
-          isAuthenticated() && (
-            <AuthenticateButton
-              onClick={this.logout.bind(this)}
-            >
-              Logout
-            </AuthenticateButton>
-          )
-        }
+      <Menu fixed='top' inverted size='large'>
+        <Container>
+          <Menu.Item as='a' active>Home</Menu.Item>
+          <Menu.Item as='a'>Work</Menu.Item>
+          <Menu.Item as='a'>Company</Menu.Item>
+          <Menu.Item as='a'>Careers</Menu.Item>
+          <Menu.Item position='right'>
+            {!isAuthenticated() && (<Button as='a' inverted onClick={this.login.bind(this)}>Log in</Button>) }
+            {!isAuthenticated() && (<Button as='a' inverted style={{ marginLeft: '0.5em' }}>Sign Up</Button>) }
+            {isAuthenticated() && (<Button as='a' inverted onClick={this.logout.bind(this)}>Log out</Button>) }
+          </Menu.Item>
+        </Container>
+      </Menu>
 
-      </NavBar>
     )
   }
 
