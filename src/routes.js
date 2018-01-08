@@ -8,9 +8,6 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import BettingOffers from './components/BettingOffers/BettingOffers.js'
 import LandingPage from './components/LandingPage/LandingPage.js'
-import {
-  Container,
-} from 'semantic-ui-react'
 
 const store = configureStore();
 

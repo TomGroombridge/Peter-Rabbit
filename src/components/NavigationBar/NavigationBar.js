@@ -2,14 +2,7 @@ import React, { Component } from 'react';
 import {
   Button,
   Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  List,
   Menu,
-  Segment,
 } from 'semantic-ui-react'
 
 class NavigationBar extends Component {
