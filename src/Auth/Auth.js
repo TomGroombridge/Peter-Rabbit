@@ -3,9 +3,9 @@ import history from '../history';
 
 export default class Auth {
   auth0 = new auth0.WebAuth({
-    domain: 'paddington.eu.auth0.com',
-    clientID: 'U7TZy4Jgg3_uzhAv4r5eg20gN0alo-dg',
-    redirectUri: 'http://localhost:3000/callback',
+    domain: process.env.REACT_APP_AUTH0_DOMAIN,
+    clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
+    redirectUri: (process.env.REACT_APP_API_URL + '/callback'),
     audience: 'https://paddington.eu.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid'
