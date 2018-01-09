@@ -5,8 +5,7 @@ export const CardOutline = styled.div`
   width: 300px;
   padding: 10px;
   display: inline-block;
-  margin-right: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
 `;
 
 export const BettingCompany = styled.div`
