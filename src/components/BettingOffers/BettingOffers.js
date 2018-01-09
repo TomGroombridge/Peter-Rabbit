@@ -20,7 +20,7 @@ class BettingOffers extends Component {
   componentDidMount() {
     const { isAuthenticated } = this.props.auth;
     if (isAuthenticated()){
-      this.props.fetchData('http://localhost:5000/bets');
+      this.props.fetchData(process.env.REACT_APP_BETTING_API_URL + '/bets');
     }
   }
 
