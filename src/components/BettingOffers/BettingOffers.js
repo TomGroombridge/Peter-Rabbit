@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import { itemsFetchData } from '../../actions/items';
 import PropTypes from 'prop-types';
 import Loading from '../Loading/Loading.js'
+import {
+  Grid,
+} from 'semantic-ui-react'
 
 class BettingOffers extends Component {
 
@@ -41,13 +44,17 @@ class BettingOffers extends Component {
     return (
       <div style={divStyle}>
         <BettingNavigationBar handler={this.handler} selected={selected}/>
-        {this.props.items.map((item) => (
-          <BettingCard
-            sport={item.sport}
-            selected={selected}
-            key={item.id}
-          />
-        ))}
+        <div style={{ marginTop: '11.3em'}}>
+          <Grid>
+          {this.props.items.map((item) => (
+              <BettingCard
+                sport={item.sport}
+                selected={selected}
+                key={item.id}
+              />
+          ))}
+          </Grid>
+        </div>
       </div>
     );
   }
@@ -77,5 +84,6 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(BettingOffers);
 
 var divStyle = {
-  textAlign: 'center'
+  textAlign: 'center',
+  minHeight: '100%'
 };

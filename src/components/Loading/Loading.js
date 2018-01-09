@@ -4,7 +4,7 @@ import  '../../style.css'
 
 
 const Loading = () => (
-  <div>
+  <div style={fullHeight}>
     <Segment className="loadingOverlay">
       <Dimmer active>
         <Loader size='large'>Loading</Loader>
@@ -14,3 +14,7 @@ const Loading = () => (
 )
 
 export default Loading
+
+const fullHeight = {
+  height: '100%'
+}
