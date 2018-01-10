@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { itemsFetchData } from '../../actions/items';
 import PropTypes from 'prop-types';
 import Loading from '../Loading/Loading.js'
+import NotAuthenticated from '../Errors/notAuthenticated.js'
 import {
   Grid,
 } from 'semantic-ui-react'
@@ -33,7 +34,7 @@ class BettingOffers extends Component {
     const { isAuthenticated } = this.props.auth;
     const { selected } = this.state;
     if (!isAuthenticated()) {
-      return <p>Sorry you cannot view this page without being authenticated</p>
+      return <NotAuthenticated auth={this.props.auth}/>
     }
     if (this.props.hasErrored) {
       return <p>Sorry! There was an error loading the items</p>;
