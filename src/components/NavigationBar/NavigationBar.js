@@ -27,6 +27,7 @@ class NavigationBar extends Component {
     return(
       <Menu fixed='top' inverted size='large'>
         <Container>
+          <Menu.Item onClick={this.props.toggleVisibility}>Show Sidenav</Menu.Item>
           <Menu.Item><Link to={'/'}>Home</Link></Menu.Item>
           <Menu.Item><Link to={'/offers'}>Offers</Link></Menu.Item>
           <Menu.Item><Link to={'/about'}>About</Link></Menu.Item>

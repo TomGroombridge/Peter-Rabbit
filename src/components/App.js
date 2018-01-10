@@ -7,11 +7,21 @@ import FAQs from './About/FAQs.js'
 import BettingOffers from './BettingOffers/BettingOffers.js'
 import NavigationFooter from './NavigationFooter/NavigationFooter.js';
 import Callback from '../Callback/Callback';
+import { Button, Sidebar, Segment, Menu, Icon } from 'semantic-ui-react'
 
 class App extends Component {
 
+  state = { visible: false }
+
   constructor(props) {
     super(props);
+    this.toggleVisibility = this.toggleVisibility.bind(this)
+    this.state = {visible: false};
+  }
+
+  toggleVisibility(){
+    console.log('visible', this.state.visible)
+    this.setState({ visible: !this.state.visible })
   }
 
   handleAuthentication(nextState, replace) {
@@ -20,19 +30,46 @@ class App extends Component {
     }
   }
 
+  SidebarItems(){
+    return(
+      <Sidebar as={Menu} animation='push' width='thin' visible={this.state.visible} icon='labeled' vertical inverted>
+        <Menu.Item onClick={this.toggleVisibility}>
+          Hide Menu
+        </Menu.Item>
+        <Menu.Item name='home'>
+          <Icon name='home' />
+          Home
+        </Menu.Item>
+        <Menu.Item name='gamepad'>
+          <Icon name='gamepad' />
+          Games
+        </Menu.Item>
+        <Menu.Item name='camera'>
+          <Icon name='camera' />
+          Channels
+        </Menu.Item>
+      </Sidebar>
+    );
+  }
+
   render(){
     return(
       <div style={divHeight}>
-        <NavigationBar auth={this.props.auth} />
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/faqs" component={FAQs} />
-        <Route exact path="/offers" render={(props) => <BettingOffers auth={this.props.auth} {...props} />} />
-        <Route path="/callback" render={(props) => {
-          this.handleAuthentication(props);
-          return <Callback {...props} />
-        }}/>
-        <NavigationFooter />
+        <Sidebar.Pushable as={Segment}>
+          {this.SidebarItems()}
+          <Sidebar.Pusher>
+            <NavigationBar auth={this.props.auth} toggleVisibility={this.toggleVisibility}/>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/faqs" component={FAQs} />
+            <Route exact path="/offers" render={(props) => <BettingOffers auth={this.props.auth} {...props} />} />
+            <NavigationFooter />
+            <Route path="/callback" render={(props) => {
+              this.handleAuthentication(props);
+              return <Callback {...props} />
+            }}/>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
       </div>
     )
   }
