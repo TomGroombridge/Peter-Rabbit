@@ -14,7 +14,7 @@ export const makeMainRoutes = () => {
   return (
     <Provider store={store}>
       <Router history={history}>
-        <App auth={auth}/>
+        <App auth={auth} history={history}/>
       </Router>
     </Provider>
   );

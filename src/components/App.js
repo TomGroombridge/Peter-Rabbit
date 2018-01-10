@@ -7,7 +7,7 @@ import FAQs from './About/FAQs.js'
 import BettingOffers from './BettingOffers/BettingOffers.js'
 import NavigationFooter from './NavigationFooter/NavigationFooter.js';
 import Callback from '../Callback/Callback';
-import { Sidebar, Segment, Menu, Icon } from 'semantic-ui-react'
+import { Sidebar, Segment, Menu, Icon, Responsive } from 'semantic-ui-react'
 
 class App extends Component {
 
@@ -16,6 +16,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.toggleVisibility = this.toggleVisibility.bind(this)
+    this.redirectTo = this.redirectTo.bind(this)
     this.state = {visible: false};
   }
 
@@ -29,23 +30,29 @@ class App extends Component {
     }
   }
 
+  redirectTo(endpoint){
+    this.setState({visible: false})
+    this.props.history.push(endpoint);
+  }
+
   SidebarItems(){
     return(
       <Sidebar as={Menu} animation='push' width='thin' visible={this.state.visible} icon='labeled' vertical inverted>
-        <Menu.Item onClick={this.toggleVisibility}>
-          Hide Menu
-        </Menu.Item>
-        <Menu.Item name='home'>
+        <Menu.Item name='home' onClick={this.redirectTo.bind(this, '/')}>
           <Icon name='home' />
           Home
         </Menu.Item>
-        <Menu.Item name='gamepad'>
+        <Menu.Item name='gamepad' onClick={this.redirectTo.bind(this, '/offers')}>
           <Icon name='gamepad' />
-          Games
+          Offers
         </Menu.Item>
-        <Menu.Item name='camera'>
+        <Menu.Item name='camera' onClick={this.redirectTo.bind(this, '/about')}>
           <Icon name='camera' />
-          Channels
+          About
+        </Menu.Item>
+        <Menu.Item name='camera' onClick={this.redirectTo.bind(this, '/faqs')}>
+          <Icon name='camera' />
+          FAQs
         </Menu.Item>
       </Sidebar>
     );
@@ -55,9 +62,9 @@ class App extends Component {
     return(
       <div style={divHeight}>
         <Sidebar.Pushable as={Segment}>
-          {this.SidebarItems()}
+          <Responsive {...Responsive.onlyMobile} as={this.SidebarItems.bind(this)} />
           <Sidebar.Pusher>
-            <NavigationBar auth={this.props.auth} toggleVisibility={this.toggleVisibility}/>
+            <NavigationBar auth={this.props.auth} toggleVisibility={this.toggleVisibility} visible={this.state.visible}/>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/about" component={About} />
             <Route exact path="/faqs" component={FAQs} />

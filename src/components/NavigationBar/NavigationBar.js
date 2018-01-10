@@ -28,7 +28,7 @@ class NavigationBar extends Component {
 
   mobileNav(){
     return(
-      <MobileNavBar toggleVisibility={this.props.toggleVisibility}/>
+      <MobileNavBar toggleVisibility={this.props.toggleVisibility} visible={this.props.visible}/>
     );
   }
 
