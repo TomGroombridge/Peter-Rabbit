@@ -20,7 +20,6 @@ class App extends Component {
   }
 
   toggleVisibility(){
-    console.log('visible', this.state.visible)
     this.setState({ visible: !this.state.visible })
   }
 
