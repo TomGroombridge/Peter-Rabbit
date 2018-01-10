@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
 import BettingOffers from './components/BettingOffers/BettingOffers.js'
 import LandingPage from './components/LandingPage/LandingPage.js'
+import About from './components/About/About.js'
 
 const store = configureStore();
 
@@ -27,6 +28,7 @@ export const makeMainRoutes = () => {
         <div style={divHeight}>
           <NavigationBar auth={auth} />
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/about" component={About} />
           <Route exact path="/offers" render={(props) => <BettingOffers auth={auth} {...props} />} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
