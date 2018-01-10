@@ -7,7 +7,6 @@ import {
   Header,
   Icon,
   Image,
-  List,
   Segment,
 } from 'semantic-ui-react'
 
@@ -20,7 +19,7 @@ export default class LandingPage extends Component {
         <Segment
           inverted
           textAlign='center'
-          style={{ minHeight: 700, padding: '1em 0em' }}
+          style={{ minHeight: 500, padding: '1em 0em' }}
           vertical
         >
           <Container text>
@@ -28,7 +27,7 @@ export default class LandingPage extends Component {
               as='h1'
               content='Imagine-a-Company'
               inverted
-              style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em' }}
+              style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '2em' }}
             />
             <Header
               as='h2'
@@ -108,7 +107,7 @@ export default class LandingPage extends Component {
               horizontal
               style={{ margin: '3em 0em', textTransform: 'uppercase' }}
             >
-              <a href='#'>Case Studies</a>
+              <a href='/'>Case Studies</a>
             </Divider>
 
             <Header as='h3' style={{ fontSize: '2em' }}>Did We Tell You About Our Bananas?</Header>
