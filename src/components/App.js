@@ -7,7 +7,7 @@ import FAQs from './About/FAQs.js'
 import BettingOffers from './BettingOffers/BettingOffers.js'
 import NavigationFooter from './NavigationFooter/NavigationFooter.js';
 import Callback from '../Callback/Callback';
-import { Button, Sidebar, Segment, Menu, Icon } from 'semantic-ui-react'
+import { Sidebar, Segment, Menu, Icon } from 'semantic-ui-react'
 
 class App extends Component {
 

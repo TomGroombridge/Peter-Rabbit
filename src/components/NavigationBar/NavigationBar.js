@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import {
-  Link,
-} from 'react-router-dom';
-import {
-  Button,
-  Container,
   Menu,
+  Responsive
 } from 'semantic-ui-react'
+import WebNavBar from './WebNavBar.js'
+import MobileNavBar from './MobileNavBar.js'
 
 class NavigationBar extends Component {
 
@@ -22,25 +20,26 @@ class NavigationBar extends Component {
     this.props.auth.logout();
   }
 
+  webNav(){
+    return(
+      <WebNavBar auth={this.props.auth} login={this.login.bind(this)} logout={this.logout.bind(this)}/>
+    );
+  }
+
+  mobileNav(){
+    return(
+      <MobileNavBar toggleVisibility={this.props.toggleVisibility}/>
+    );
+  }
+
   render(){
-    const { isAuthenticated } = this.props.auth;
     return(
       <Menu fixed='top' inverted size='large'>
-        <Container>
-          <Menu.Item onClick={this.props.toggleVisibility}>Show Sidenav</Menu.Item>
-          <Menu.Item><Link to={'/'}>Home</Link></Menu.Item>
-          <Menu.Item><Link to={'/offers'}>Offers</Link></Menu.Item>
-          <Menu.Item><Link to={'/about'}>About</Link></Menu.Item>
-          <Menu.Item><Link to={'/faqs'}>FAQ's</Link></Menu.Item>
-          <Menu.Item position='right'>
-            {!isAuthenticated() && (<Button as='a' inverted onClick={this.login.bind(this)}>Log in</Button>) }
-            {!isAuthenticated() && (<Button as='a' inverted style={{ marginLeft: '0.5em' }}>Sign Up</Button>) }
-            {isAuthenticated() && (<Button as='a' inverted onClick={this.logout.bind(this)}>Log out</Button>) }
-          </Menu.Item>
-        </Container>
+        <Responsive {...Responsive.onlyMobile} as={this.mobileNav.bind(this)} />
+        <Responsive minWidth={Responsive.onlyTablet.minWidth} as={this.webNav.bind(this)} />
       </Menu>
 
-    )
+    );
   }
 
 }
