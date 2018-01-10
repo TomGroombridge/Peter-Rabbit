@@ -7,7 +7,6 @@ import {
   Header,
   Icon,
   Image,
-  List,
   Segment,
 } from 'semantic-ui-react'
 
@@ -108,7 +107,7 @@ export default class LandingPage extends Component {
               horizontal
               style={{ margin: '3em 0em', textTransform: 'uppercase' }}
             >
-              <a href='#'>Case Studies</a>
+              <a href='/'>Case Studies</a>
             </Divider>
 
             <Header as='h3' style={{ fontSize: '2em' }}>Did We Tell You About Our Bananas?</Header>
