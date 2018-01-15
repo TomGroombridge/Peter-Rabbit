@@ -9,6 +9,7 @@ import {
   Image,
   Segment,
 } from 'semantic-ui-react'
+import history from '../../history';
 
 
 export default class LandingPage extends Component {
@@ -25,17 +26,17 @@ export default class LandingPage extends Component {
           <Container text>
             <Header
               as='h1'
-              content='Imagine-a-Company'
+              content='NewCo'
               inverted
               style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '2em' }}
             />
             <Header
               as='h2'
-              content='Do whatever you want when you want to.'
+              content='Find the best odds for you'
               inverted
               style={{ fontSize: '1.7em', fontWeight: 'normal' }}
             />
-            <Button primary size='huge'>
+            <Button primary size='huge' onClick={() => { history.push('/offers') }}>
               Get Started
               <Icon name='right arrow' />
             </Button>
@@ -46,14 +47,13 @@ export default class LandingPage extends Component {
           <Grid container stackable verticalAlign='middle'>
             <Grid.Row>
               <Grid.Column width={8}>
-                <Header as='h3' style={{ fontSize: '2em' }}>We Help Companies and Companions</Header>
+                <Header as='h3' style={{ fontSize: '2em' }}>We Help You Find The Best Odds</Header>
                 <p style={{ fontSize: '1.33em' }}>
-                  We can give your company superpowers to do things that they never thought possible. Let us delight
-                  your customers and empower your needs... through pure data analytics.
+                  Here at NewCo we know that you want to get the best offers available from all the major bookies. We are here to help you take your bet that bit further.
                 </p>
-                <Header as='h3' style={{ fontSize: '2em' }}>We Make Bananas That Can Dance</Header>
+                <Header as='h3' style={{ fontSize: '2em' }}>We Only Do What's Right</Header>
                 <p style={{ fontSize: '1.33em' }}>
-                  Yes that's right, you thought it was the stuff of dreams, but even bananas can be bioengineered.
+                 We only do business with bookies we feel are safe and secure, if we don't feel that your money is safe we will not offer you their services.
                 </p>
               </Grid.Column>
               <Grid.Column floated='right' width={6}>
@@ -61,13 +61,14 @@ export default class LandingPage extends Component {
                   bordered
                   rounded
                   size='large'
+                  alt="show laptop with our offers page on it"
                   src='/assets/images/wireframe/white-image.png'
                 />
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
               <Grid.Column textAlign='center'>
-                <Button size='huge'>Check Them Out</Button>
+                <Button size='huge' onClick={() => { history.push('/about') }}>Find Out More About Us</Button>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -77,14 +78,13 @@ export default class LandingPage extends Component {
           <Grid celled='internally' columns='equal' stackable>
             <Grid.Row textAlign='center'>
               <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-                <Header as='h3' style={{ fontSize: '2em' }}>"What a Company"</Header>
+                <Header as='h3' style={{ fontSize: '2em' }}>"Great Experience"</Header>
                 <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
               </Grid.Column>
               <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-                <Header as='h3' style={{ fontSize: '2em' }}>"I shouldn't have gone with their competitor."</Header>
+                <Header as='h3' style={{ fontSize: '2em' }}>"Honest Company"</Header>
                 <p style={{ fontSize: '1.33em' }}>
-                  <Image avatar src='/assets/images/avatar/large/nan.jpg' />
-                  <b>Nan</b> Chief Fun Officer Acme Toys
+                  Tom Groombridge
                 </p>
               </Grid.Column>
             </Grid.Row>
@@ -93,13 +93,11 @@ export default class LandingPage extends Component {
 
         <Segment style={{ padding: '8em 0em' }} vertical>
           <Container text>
-            <Header as='h3' style={{ fontSize: '2em' }}>Breaking The Grid, Grabs Your Attention</Header>
+            <Header as='h3' style={{ fontSize: '2em' }}>Sign Up Offers</Header>
             <p style={{ fontSize: '1.33em' }}>
-              Instead of focusing on content creation and hard work, we have learned how to master the art of doing
-              nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic
-              and worth your attention.
+              We offer great sign up offers for a wide variety of sports betting companies. No matter what you are looking for you will be able to find it here.
             </p>
-            <Button as='a' size='large'>Read More</Button>
+            <Button as='a' size='large' onClick={() => { history.push('/offers') }}>View Offers</Button>
 
             <Divider
               as='h4'
@@ -107,16 +105,14 @@ export default class LandingPage extends Component {
               horizontal
               style={{ margin: '3em 0em', textTransform: 'uppercase' }}
             >
-              <a href='/'>Case Studies</a>
+              <a href='/'>Offers</a>
             </Divider>
 
-            <Header as='h3' style={{ fontSize: '2em' }}>Did We Tell You About Our Bananas?</Header>
+            <Header as='h3' style={{ fontSize: '2em' }}>Enhanced Betting Offers</Header>
             <p style={{ fontSize: '1.33em' }}>
-              Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but it's really
-              true.
-              It took years of gene splicing and combinatory DNA research, but our bananas can really dance.
+              Different sites have different offers of the day. View them all in one place and decide who your money is going on.
             </p>
-            <Button as='a' size='large'>I'm Still Quite Interested</Button>
+            <Button as='a' size='large' onClick={() => { history.push('/offers') }}>View Todays Offers</Button>
           </Container>
         </Segment>
 
