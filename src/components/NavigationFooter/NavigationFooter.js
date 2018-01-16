@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Segment, Container, Grid, Header, List } from 'semantic-ui-react'
+import { Link } from 'react-router-dom';
 
 class NavigationFooter extends Component {
 
@@ -12,24 +13,24 @@ class NavigationFooter extends Component {
               <Grid.Column width={3}>
                 <Header inverted as='h4' content='About' />
                 <List link inverted>
-                  <List.Item as='a'>Sitemap</List.Item>
-                  <List.Item as='a'>Contact Us</List.Item>
-                  <List.Item as='a'>Religious Ceremonies</List.Item>
+                  <List.Item as='a' href={'/about'}>Who are we</List.Item>
+                  <List.Item as='a' href={'/faqs'}>FAQ's</List.Item>
+                  <List.Item as='a' href={'/contact'}>Contact us</List.Item>
                   <List.Item as='a'>Gazebo Plans</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={3}>
-                <Header inverted as='h4' content='Services' />
+                <Header inverted as='h4' content='Join Us' />
                 <List link inverted>
-                  <List.Item as='a'>Banana Pre-Order</List.Item>
-                  <List.Item as='a'>DNA FAQ</List.Item>
-                  <List.Item as='a'>How To Access</List.Item>
-                  <List.Item as='a'>Favorite X-Men</List.Item>
+                  <List.Item as='a'>Facebook</List.Item>
+                  <List.Item as='a'>Twitter</List.Item>
+                  <List.Item as='a'>Instagram</List.Item>
+                  <List.Item as='a'>Snapchat</List.Item>
                 </List>
               </Grid.Column>
               <Grid.Column width={7}>
-                <Header as='h4' inverted>Footer Header</Header>
-                <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                <Header as='h4' inverted>Need Something?</Header>
+                <p>If you have any questions or see something you don't think is right then please get in contact us.</p>
               </Grid.Column>
             </Grid.Row>
           </Grid>
